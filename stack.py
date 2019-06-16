@@ -56,8 +56,7 @@ print('stack isEmpty: ', stack.is_empty())
 print('peek: ', stack.peek())
 
 
-
-# function to reverse a string:
+# function to reverse a string using list
 def reverse_string(string):
     to_list = [s for s in string]
     reverse = ''
@@ -65,6 +64,21 @@ def reverse_string(string):
         reverse += to_list.pop()
     return reverse
 
+# using stack to reverse:
+def reverse_string2(string):
+    # creating char stack
+    stack = Stack()
+    for char in string:
+        stack.push(char)
+    # reversing the stack
+    reverse = ''
+    try:
+        while not stack.is_empty():
+            reverse += stack.peek()
+            stack.pop()
+    except:
+        return reverse
 
-string = 'Rabindra Nepal'
-print(reverse_string(string))
+
+name = 'Rabindra Nepal'
+print(reverse_string2(name))
